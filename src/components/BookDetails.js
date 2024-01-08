@@ -1,21 +1,15 @@
 import { useState } from "react";
-import BookEdit from "./BookEdit";
+
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
+import { BookEdit } from "./BookEdit";
 export const BookDetails = ({ book, onDelete, onEdit }) => {
   const [showEdit, setShowEdit] = useState(false);
 
-  const handleDeleteClick = () => {
-    onDelete(book.id);
-  };
+  const handleDeleteClick = () => {};
 
-  const handleEditClick = () => {
-    setShowEdit(!showEdit);
-  };
+  const handleEditClick = () => {};
 
-  const handleSubmit = (id, newTitle) => {
-    setShowEdit(false);
-    onEdit(id, newTitle);
-  };
+  const handleSubmit = (id, newTitle) => {};
 
   let content = <h3>{book.title}</h3>;
   if (showEdit) {
@@ -24,13 +18,18 @@ export const BookDetails = ({ book, onDelete, onEdit }) => {
 
   return (
     <div className="mx-20 my-10">
-      <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
-      <div className="">{content}</div>
+      <div className="my-5">
+        <img
+          alt="books"
+          src={`https://picsum.photos/seed/${book.id}/300/200`}
+        />
+      </div>
       <div className="flex">
-        <button className="edit" onClick={handleEditClick}>
+        <div className="text-xl font-bold">{content}</div>
+        <button className="mx-3">
           <PencilIcon className="h-6 w-6 text-blue-500" />
         </button>
-        <button className="delete" onClick={handleDeleteClick}>
+        <button className="">
           <TrashIcon className="h-6 w-6 text-blue-500" />
         </button>
       </div>
